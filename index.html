@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <img src="/badir.jpeg" />
   <title>Badir Alhaj Younis | Portfolio</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -118,6 +118,17 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
+    }
+
+    .hero-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      box-shadow: 0 0 0 4px rgba(124, 106, 247, 0.15);
+      margin-bottom: 2rem;
+      display: block;
     }
 
     .hero-label::before {
@@ -521,7 +532,7 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    . {
+    .fade-up {
       opacity: 0;
       animation: fadeUp 0.7s ease forwards;
     }
@@ -563,6 +574,7 @@
 
   <!-- HERO -->
   <div id="hero">
+    <img src="badir.jpeg" alt="Badir Alhaj Younis" class="hero-avatar fade-up">
     <div class="hero-label fade-up">Software Engineering Student</div>
     <h1 class="fade-up delay-1">Badir<br><em>Alhaj Younis</em></h1>
     <p class="hero-desc fade-up delay-2">Building clean, functional web applications — one line at a time. Currently studying at Near East University and diving deep into web development.</p>
@@ -771,7 +783,7 @@
     <p class="contact-sub">Interested in collaborating or have a question? Feel free to reach out.</p>
     <div class="contact-links">
       <a href="https://github.com/BADIR64" target="_blank" class="btn-primary">GitHub Profile →</a>
-      <a href="mailto:badir@example.com" class="btn-ghost">Send Email</a>
+      <a href="/cdn-cgi/l/email-protection#e48685808d96a4819c8589948881ca878b89" class="btn-ghost">Send Email</a>
     </div>
   </section>
 
@@ -779,7 +791,7 @@
     Built with HTML, CSS &amp; JS by <span>Badir Alhaj Younis</span> · 2026
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function toggleAnswers(id, btn) {
       const el = document.getElementById(id);
       const arrow = btn.querySelector('span');
@@ -805,11 +817,4 @@
 
     document.querySelectorAll('.hw-card, .stat-card').forEach(el => {
       el.style.opacity = 0;
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(el);
-    });
-  </script>
-
-</body>
-</html>
+      el.style.transform = 'transl
