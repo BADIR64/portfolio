@@ -21,7 +21,6 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -32,7 +31,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── Noise texture overlay ─── */
     body::before {
       content: '';
       position: fixed;
@@ -43,506 +41,130 @@
       z-index: 0;
     }
 
-    /* ─── Ambient orbs ─── */
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.12;
-      pointer-events: none;
-      z-index: 0;
-    }
+    .orb { position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.12; pointer-events: none; z-index: 0; }
     .orb-1 { width: 500px; height: 500px; background: var(--accent); top: -150px; left: -150px; }
     .orb-2 { width: 400px; height: 400px; background: var(--accent2); bottom: 10%; right: -100px; }
     .orb-3 { width: 300px; height: 300px; background: var(--accent3); top: 50%; left: 40%; }
 
-    /* ─── NAV ─── */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 1.25rem 3rem;
       background: rgba(10, 10, 15, 0.7);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      color: var(--text);
-      letter-spacing: 0.02em;
-    }
-
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--text); letter-spacing: 0.02em; }
     .nav-logo span { color: var(--accent); }
-
     .nav-links { display: flex; gap: 2rem; }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
 
-    /* ─── HERO ─── */
     #hero {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 3rem 4rem;
-      max-width: 1100px;
-      margin: 0 auto;
+      position: relative; z-index: 1;
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 3rem 4rem; max-width: 1100px; margin: 0 auto;
     }
 
-    .hero-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+    .hero-label { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .hero-avatar { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); box-shadow: 0 0 0 4px rgba(124, 106, 247, 0.15); margin-bottom: 2rem; display: block; }
+    .hero-label::before { content: ''; display: block; width: 30px; height: 1px; background: var(--accent); }
 
-    .hero-avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border);
-      box-shadow: 0 0 0 4px rgba(124, 106, 247, 0.15);
-      margin-bottom: 2rem;
-      display: block;
-    }
+    h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1.05; color: var(--text); margin-bottom: 1.5rem; }
+    h1 em { font-style: italic; color: var(--accent); }
 
-    .hero-label::before {
-      content: '';
-      display: block;
-      width: 30px;
-      height: 1px;
-      background: var(--accent);
-    }
+    .hero-desc { font-size: 1.15rem; color: var(--muted); max-width: 520px; margin-bottom: 3rem; font-weight: 300; line-height: 1.8; }
 
-    h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      line-height: 1.05;
-      color: var(--text);
-      margin-bottom: 1.5rem;
-    }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: var(--accent); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; border: 1px solid var(--accent); }
+    .btn-primary:hover { background: transparent; color: var(--accent); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: transparent; color: var(--text); text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.95rem; transition: all 0.2s; border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-    .hero-desc {
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 3rem;
-      font-weight: 300;
-      line-height: 1.8;
-    }
+    .hero-scroll { margin-top: 5rem; display: flex; align-items: center; gap: 1rem; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Mono', monospace; }
+    .hero-scroll::after { content: ''; display: block; width: 60px; height: 1px; background: var(--muted); }
 
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+    section { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-      border: 1px solid var(--accent);
-    }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--accent2); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent2); }
 
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--accent);
-    }
+    h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--text); margin-bottom: 3rem; line-height: 1.15; }
 
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      background: transparent;
-      color: var(--text);
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-      border: 1px solid var(--border);
-    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-text p { color: var(--muted); margin-bottom: 1.25rem; line-height: 1.8; font-weight: 300; }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .hero-scroll {
-      margin-top: 5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      color: var(--muted);
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-family: 'DM Mono', monospace;
-    }
-
-    .hero-scroll::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 1px;
-      background: var(--muted);
-    }
-
-    /* ─── SECTIONS ─── */
-    section {
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 6rem 3rem;
-    }
-
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--accent2);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 1px;
-      background: var(--accent2);
-    }
-
-    h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--text);
-      margin-bottom: 3rem;
-      line-height: 1.15;
-    }
-
-    /* ─── ABOUT ─── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-
-    .about-text p strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: border-color 0.2s;
-    }
-
+    .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.2s; }
     .stat-card:hover { border-color: var(--accent); }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--accent); line-height: 1; margin-bottom: 0.4rem; }
+    .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 
-    .stat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.5rem;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
+    .hw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
 
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    /* ─── HOMEWORK CARDS ─── */
-    .hw-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .hw-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 2rem;
-      transition: all 0.3s;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hw-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent3));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
-    }
-
+    .hw-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; transition: all 0.3s; cursor: pointer; position: relative; overflow: hidden; }
+    .hw-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent3)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
     .hw-card:hover::before { transform: scaleX(1); }
+    .hw-card:hover { border-color: rgba(124, 106, 247, 0.4); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(124,106,247,0.1); }
 
-    .hw-card:hover {
-      border-color: rgba(124, 106, 247, 0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(124,106,247,0.1);
-    }
+    /* final project card gets a special top bar */
+    .hw-card.final::before { background: linear-gradient(90deg, var(--accent2), var(--accent)); }
+    .hw-card.final { border-color: rgba(247,162,106,0.2); }
+    .hw-card.final:hover { border-color: rgba(247,162,106,0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(247,162,106,0.15); }
 
-    .hw-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.75rem;
-    }
+    .final-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(247,162,106,0.12); border: 1px solid rgba(247,162,106,0.25); color: var(--accent2); font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 0.75rem; }
+    .final-badge::before { content: '★'; font-size: 0.6rem; }
 
-    .hw-card h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      color: var(--text);
-      margin-bottom: 0.75rem;
-    }
+    .hw-num { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+    .hw-card.final .hw-num { color: var(--accent2); }
 
-    .hw-card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
-    }
+    .hw-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--text); margin-bottom: 0.75rem; }
+    .hw-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
 
-    .hw-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.25rem;
-    }
+    .hw-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+    .tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 3px 10px; border-radius: 100px; border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em; }
 
-    .tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      padding: 3px 10px;
-      border-radius: 100px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
-
-    .hw-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.85rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      transition: gap 0.2s;
-    }
-
+    .hw-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--accent); text-decoration: none; font-weight: 500; transition: gap 0.2s; }
     .hw-link:hover { gap: 0.7rem; }
+    .hw-card.final .hw-link { color: var(--accent2); }
 
-    /* ─── EXPANDED ANSWERS ─── */
-    .hw-answers {
-      display: none;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-    }
-
+    .hw-answers { display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
     .hw-answers.open { display: block; }
 
-    .qa-item {
-      margin-bottom: 1.25rem;
-    }
+    .qa-item { margin-bottom: 1.25rem; }
+    .qa-q { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; font-family: 'DM Mono', monospace; letter-spacing: 0.03em; }
+    .qa-a { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .qa-a strong { color: var(--accent3); }
 
-    .qa-q {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.3rem;
-      font-family: 'DM Mono', monospace;
-      letter-spacing: 0.03em;
-    }
-
-    .qa-a {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .qa-a strong {
-      color: var(--accent3);
-    }
-
-    .toggle-btn {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.8rem;
-      font-family: 'DM Mono', monospace;
-      padding: 0.4rem 0.9rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s;
-      letter-spacing: 0.05em;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
+    .toggle-btn { background: none; border: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; font-family: 'DM Mono', monospace; padding: 0.4rem 0.9rem; border-radius: 6px; cursor: pointer; transition: all 0.2s; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; }
     .toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    .hw-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
+    .hw-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
 
-    /* ─── FEATURED (HW5 full width) ─── */
-    .hw-card.featured {
-      grid-column: 1 / -1;
-    }
+    .hw-card.featured { grid-column: 1 / -1; }
+    .hw-card.featured .hw-answers .qa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-    .hw-card.featured .hw-answers .qa-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    /* ─── CONTACT ─── */
-    #contact {
-      text-align: center;
-    }
-
+    #contact { text-align: center; }
     #contact h2 { margin-bottom: 1rem; }
+    .contact-sub { color: var(--muted); margin-bottom: 3rem; font-size: 1.05rem; font-weight: 300; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
-    .contact-sub {
-      color: var(--muted);
-      margin-bottom: 3rem;
-      font-size: 1.05rem;
-      font-weight: 300;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 3rem 1rem;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.85rem;
-      font-family: 'DM Mono', monospace;
-      letter-spacing: 0.05em;
-    }
-
+    footer { position: relative; z-index: 1; text-align: center; padding: 3rem 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; font-family: 'DM Mono', monospace; letter-spacing: 0.05em; }
     footer span { color: var(--accent); }
 
-    /* ─── Divider ─── */
-    .divider {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 3rem;
-      position: relative;
-      z-index: 1;
-    }
+    .divider { max-width: 1100px; margin: 0 auto; padding: 0 3rem; position: relative; z-index: 1; }
+    .divider hr { border: none; border-top: 1px solid var(--border); }
 
-    .divider hr {
-      border: none;
-      border-top: 1px solid var(--border);
-    }
-
-    /* ─── Animations ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-up {
-      opacity: 0;
-      animation: fadeUp 0.7s ease forwards;
-    }
-
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
     .delay-1 { animation-delay: 0.1s; }
     .delay-2 { animation-delay: 0.2s; }
     .delay-3 { animation-delay: 0.3s; }
     .delay-4 { animation-delay: 0.5s; }
 
-    /* ─── Responsive ─── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1rem; }
@@ -550,10 +172,7 @@
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .hw-card.featured .hw-answers .qa-grid { grid-template-columns: 1fr; }
     }
-
-    @media (max-width: 480px) {
-      .nav-links a { font-size: 0.75rem; }
-    }
+    @media (max-width: 480px) { .nav-links a { font-size: 0.75rem; } }
   </style>
 </head>
 <body>
@@ -562,7 +181,6 @@
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-logo">B<span>.</span>Alhaj Younis</div>
     <div class="nav-links">
@@ -572,7 +190,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <div id="hero">
     <img src="badir.jpeg" alt="Badir Alhaj Younis" class="hero-avatar fade-up">
     <div class="hero-label fade-up">Software Engineering Student</div>
@@ -585,7 +202,6 @@
     <div class="hero-scroll fade-up delay-4">Scroll to explore</div>
   </div>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-label">Who I am</div>
     <h2>About Me</h2>
@@ -598,257 +214,149 @@
         <p>Each assignment pushes me to apply theory in practice, from accessibility principles to CSS architecture and thoughtful design decisions.</p>
       </div>
       <div class="about-stats">
-        <div class="stat-card">
-          <div class="stat-num">10</div>
-          <div class="stat-label">Homeworks</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">Languages</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Curiosity</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">1</div>
-          <div class="stat-label">University</div>
-        </div>
+        <div class="stat-card"><div class="stat-num">10</div><div class="stat-label">Homeworks</div></div>
+        <div class="stat-card"><div class="stat-num">3+</div><div class="stat-label">Languages</div></div>
+        <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Curiosity</div></div>
+        <div class="stat-card"><div class="stat-num">1</div><div class="stat-label">University</div></div>
       </div>
     </div>
   </section>
 
   <div class="divider"><hr></div>
 
-  <!-- HOMEWORKS -->
   <section id="homeworks">
     <div class="section-label">Academic Work</div>
     <h2>Homeworks</h2>
 
     <div class="hw-grid">
 
-      <!-- HW1 -->
       <div class="hw-card">
         <div class="hw-num">// HW01</div>
         <h3>Web Project</h3>
         <p>An HTML project demonstrating front-end development skills and modern web techniques including layout, structure, and basic interactivity.</p>
-        <div class="hw-tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
-        <div class="hw-actions">
-          <a href="https://github.com/BADIR64/homework/tree/main/HW1" target="_blank" class="hw-link">View on GitHub →</a>
-        </div>
+        <div class="hw-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+        <div class="hw-actions"><a href="https://github.com/BADIR64/homework/tree/main/HW1" target="_blank" class="hw-link">View on GitHub →</a></div>
       </div>
 
-      <!-- HW2 -->
       <div class="hw-card">
         <div class="hw-num">// HW02</div>
         <h3>Itch.io Website Evaluation</h3>
         <p>A detailed analysis of the Itch.io gaming platform's website design, covering UX patterns, accessibility, and visual design decisions.</p>
-        <div class="hw-tags">
-          <span class="tag">UX Analysis</span>
-          <span class="tag">Documentation</span>
-          <span class="tag">Research</span>
-        </div>
-        <div class="hw-actions">
-          <a href="https://github.com/BADIR64/homework/tree/main/HW2" target="_blank" class="hw-link">View on GitHub →</a>
-        </div>
+        <div class="hw-tags"><span class="tag">UX Analysis</span><span class="tag">Documentation</span><span class="tag">Research</span></div>
+        <div class="hw-actions"><a href="https://github.com/BADIR64/homework/tree/main/HW2" target="_blank" class="hw-link">View on GitHub →</a></div>
       </div>
 
-      <!-- HW3 -->
       <div class="hw-card">
         <div class="hw-num">// HW03</div>
         <h3>Yoga Website</h3>
         <p>A complete multi-page HTML website for a yoga studio, featuring responsive layout, clean design, and semantic markup.</p>
-        <div class="hw-tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">Web Design</span>
-        </div>
-        <div class="hw-actions">
-          <a href="https://github.com/BADIR64/homework/tree/main/HW3" target="_blank" class="hw-link">View on GitHub →</a>
-        </div>
+        <div class="hw-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Web Design</span></div>
+        <div class="hw-actions"><a href="https://github.com/BADIR64/homework/tree/main/HW3" target="_blank" class="hw-link">View on GitHub →</a></div>
       </div>
 
-      <!-- HW4 -->
       <div class="hw-card">
         <div class="hw-num">// HW04</div>
         <h3>CSS Fundamentals</h3>
         <p>Written answers covering core CSS concepts — inline styles, selectors, declarations, external stylesheets, and debugging broken CSS code.</p>
-        <div class="hw-tags">
-          <span class="tag">CSS</span>
-          <span class="tag">Theory</span>
-          <span class="tag">Debugging</span>
-        </div>
+        <div class="hw-tags"><span class="tag">CSS</span><span class="tag">Theory</span><span class="tag">Debugging</span></div>
         <div class="hw-actions">
-          <button class="toggle-btn" onclick="toggleAnswers('hw4-answers', this)">
-            <span>▸</span> Show Answers
-          </button>
+          <button class="toggle-btn" onclick="toggleAnswers('hw4-answers', this)"><span>▸</span> Show Answers</button>
         </div>
         <div id="hw4-answers" class="hw-answers">
-          <div class="qa-item">
-            <div class="qa-q">Q1 — Which CSS type is coded inside an HTML tag attribute?</div>
-            <div class="qa-a"><strong>b. Inline CSS</strong> — Written directly inside a tag via the <code>style</code> attribute (e.g., <code>&lt;p style="color:red"&gt;</code>). Applies only to that element and overrides other styles.</div>
-          </div>
-          <div class="qa-item">
-            <div class="qa-q">Q2 — CSS property for background color of a web page?</div>
-            <div class="qa-a"><strong>b. background-color</strong> — The correct CSS property. Note: <code>bgcolor</code> is an outdated HTML attribute, not CSS. <code>color</code> only controls text color.</div>
-          </div>
-          <div class="qa-item">
-            <div class="qa-q">Q3 — Two components of a CSS rule?</div>
-            <div class="qa-a"><strong>a. Selectors and declarations</strong> — A selector targets the HTML element; declarations are property-value pairs inside curly braces.</div>
-          </div>
-          <div class="qa-item">
-            <div class="qa-q">Q4 — How to associate a page with an external stylesheet?</div>
-            <div class="qa-a"><strong>c. <code>&lt;link rel="stylesheet" href="style.css"&gt;</code></strong> — Placed inside <code>&lt;head&gt;</code>, this is the standard method to link an external CSS file.</div>
-          </div>
-          <div class="qa-item">
-            <div class="qa-q">Q5 — CSS for background color #00CED1 on a web page?</div>
-            <div class="qa-a"><strong>a. <code>body { background-color: #00CED1; }</code></strong> — The <code>body</code> selector targets the whole page. Other options used invalid selectors like <code>document</code>.</div>
-          </div>
-          <div class="qa-item">
-            <div class="qa-q">Q6 — Find the Error</div>
-            <div class="qa-a"><strong>Missing forward slash in closing <code>&lt;/style&gt;</code> tag.</strong> The code had <code>&lt;style&gt;</code> instead of <code>&lt;/style&gt;</code>, so the browser couldn't determine where the CSS block ended — causing the page to appear blank or broken.</div>
-          </div>
+          <div class="qa-item"><div class="qa-q">Q1 — Which CSS type is coded inside an HTML tag attribute?</div><div class="qa-a"><strong>b. Inline CSS</strong> — Written directly inside a tag via the <code>style</code> attribute. Applies only to that element and overrides other styles.</div></div>
+          <div class="qa-item"><div class="qa-q">Q2 — CSS property for background color of a web page?</div><div class="qa-a"><strong>b. background-color</strong> — The correct CSS property. <code>bgcolor</code> is an outdated HTML attribute; <code>color</code> only controls text color.</div></div>
+          <div class="qa-item"><div class="qa-q">Q3 — Two components of a CSS rule?</div><div class="qa-a"><strong>a. Selectors and declarations</strong> — A selector targets the HTML element; declarations are property-value pairs inside curly braces.</div></div>
+          <div class="qa-item"><div class="qa-q">Q4 — How to associate a page with an external stylesheet?</div><div class="qa-a"><strong>c. <code>&lt;link rel="stylesheet" href="style.css"&gt;</code></strong> — Placed inside <code>&lt;head&gt;</code>, this is the standard method.</div></div>
+          <div class="qa-item"><div class="qa-q">Q5 — CSS for background color #00CED1 on a web page?</div><div class="qa-a"><strong>a. <code>body { background-color: #00CED1; }</code></strong> — The <code>body</code> selector targets the whole page.</div></div>
+          <div class="qa-item"><div class="qa-q">Q6 — Find the Error</div><div class="qa-a"><strong>Missing forward slash in closing <code>&lt;/style&gt;</code> tag.</strong> The code had <code>&lt;style&gt;</code> instead of <code>&lt;/style&gt;</code>, causing the browser to render the page blank or broken.</div></div>
         </div>
       </div>
 
-      <!-- HW5 — featured, full width -->
       <div class="hw-card featured">
         <div class="hw-num">// HW05</div>
         <h3>Web Design Principles</h3>
         <p>Written answers covering website organization methods, WCAG accessibility principles, target audience effects, image-based navigation practices, color theory, and a comparative design analysis of CNN vs. MSNBC using Repetition, Contrast, Proximity, and Alignment principles.</p>
-        <div class="hw-tags">
-          <span class="tag">Accessibility</span>
-          <span class="tag">Design Theory</span>
-          <span class="tag">Color</span>
-          <span class="tag">UX</span>
-          <span class="tag">WCAG</span>
-        </div>
+        <div class="hw-tags"><span class="tag">Accessibility</span><span class="tag">Design Theory</span><span class="tag">Color</span><span class="tag">UX</span><span class="tag">WCAG</span></div>
         <div class="hw-actions">
-          <button class="toggle-btn" onclick="toggleAnswers('hw5-answers', this)">
-            <span>▸</span> Show Answers
-          </button>
+          <button class="toggle-btn" onclick="toggleAnswers('hw5-answers', this)"><span>▸</span> Show Answers</button>
         </div>
         <div id="hw5-answers" class="hw-answers">
           <div class="qa-grid">
             <div>
-              <div class="qa-item">
-                <div class="qa-q">Q1 — Three most common website organization methods?</div>
-                <div class="qa-a"><strong>b. Hierarchical, linear, and random</strong> — Hierarchical uses a tree structure; linear is step-by-step; random is free-form with no set path.</div>
-              </div>
-              <div class="qa-item">
-                <div class="qa-q">Q2 — Four principles of WCAG?</div>
-                <div class="qa-a"><strong>b. Perceivable, Operable, Understandable, Robust (POUR)</strong> — Perceivable: content must be presented in ways users can perceive. Operable: navigable interface. Understandable: clear content and UI. Robust: works with current and future assistive technologies.</div>
-              </div>
-              <div class="qa-item">
-                <div class="qa-q">Q3 — What is influenced by a site's target audience?</div>
-                <div class="qa-a"><strong>d. All of the above</strong> — Audience affects color usage, font sizes, and overall look and feel. A children's site uses bright colors and large fonts; a corporate site uses neutral tones and formal typography.</div>
-              </div>
-              <div class="qa-item">
-                <div class="qa-q">Q4 — Best practices for image-based navigation?</div>
-                <div class="qa-a"><strong>c. Both a and b</strong> — Provide alt text for screen readers, and place text links at the bottom as a fallback for users with images disabled or using assistive technology.</div>
-              </div>
-              <div class="qa-item">
-                <div class="qa-q">Q5 — Color scheme using two opposite colors on the wheel?</div>
-                <div class="qa-a"><strong>b. Complementary</strong> — Pairs two colors directly opposite (e.g., blue & orange, red & green) creating strong contrast. Analogous uses adjacent colors; split-complementary uses one base + two colors adjacent to its complement.</div>
-              </div>
+              <div class="qa-item"><div class="qa-q">Q1 — Three most common website organization methods?</div><div class="qa-a"><strong>b. Hierarchical, linear, and random</strong> — Hierarchical uses a tree structure; linear is step-by-step; random is free-form.</div></div>
+              <div class="qa-item"><div class="qa-q">Q2 — Four principles of WCAG?</div><div class="qa-a"><strong>b. Perceivable, Operable, Understandable, Robust (POUR)</strong> — Perceivable: content users can perceive. Operable: navigable UI. Understandable: clear content. Robust: works with assistive tech.</div></div>
+              <div class="qa-item"><div class="qa-q">Q3 — What is influenced by a site's target audience?</div><div class="qa-a"><strong>d. All of the above</strong> — Audience affects color usage, font sizes, and overall look and feel.</div></div>
+              <div class="qa-item"><div class="qa-q">Q4 — Best practices for image-based navigation?</div><div class="qa-a"><strong>c. Both a and b</strong> — Provide alt text for screen readers, and place text links at the bottom as a fallback.</div></div>
+              <div class="qa-item"><div class="qa-q">Q5 — Color scheme using two opposite colors on the wheel?</div><div class="qa-a"><strong>b. Complementary</strong> — Pairs two colors directly opposite (e.g., blue & orange) creating strong contrast.</div></div>
             </div>
             <div>
-              <div class="qa-item">
-                <div class="qa-q">Q6 — Design Principles: CNN vs. MSNBC</div>
-                <div class="qa-a">
-                  <strong>Repetition:</strong> CNN repeats bold red across the logo, breaking news banners, and hover effects. MSNBC repeats blue tones in nav bars and section headers. Both repeat typographic styles for all story headlines.<br><br>
-                  <strong>Contrast:</strong> CNN uses white/light gray backgrounds with dark text and red alerts (high contrast). MSNBC uses large hero images paired with dark headline text over lighter backgrounds. Both use size contrast — larger fonts for lead stories.<br><br>
-                  <strong>Proximity:</strong> Both group story headlines, images, and descriptions in tight card layouts. Related stories are clustered by topic sections. Navigation links are grouped together at the top, separate from editorial content.<br><br>
-                  <strong>Alignment:</strong> Both use multi-column grid systems where headlines and images align to invisible vertical/horizontal lines. Navigation menus are horizontally aligned across the top on both sites, creating predictable structure for returning visitors.
-                </div>
-              </div>
+              <div class="qa-item"><div class="qa-q">Q6 — Design Principles: CNN vs. MSNBC</div><div class="qa-a"><strong>Repetition:</strong> CNN repeats bold red; MSNBC repeats blue tones. Both repeat typographic styles for headlines.<br><br><strong>Contrast:</strong> CNN uses white backgrounds with red alerts. MSNBC uses large hero images with dark headline text.<br><br><strong>Proximity:</strong> Both group headlines, images, and descriptions in tight card layouts with topic-based clustering.<br><br><strong>Alignment:</strong> Both use multi-column grids with horizontally aligned navigation menus at the top.</div></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- HW6 -->
       <div class="hw-card">
         <div class="hw-num">// HW06</div>
         <h3>HW6</h3>
-        <div class="hw-tags">
-          <span class="tag">PDF</span>
-          <span class="tag">Assignment</span>
-        </div>
-      
-        <div class="hw-actions">
-          <a href="https://github.com/BADIR64/homework/blob/main/badir/HW6.pdf" target="_blank" class="hw-link">View PDF →</a>
-        </div>
-      </div>
-      
-      <!-- HW7 -->
-      <div class="hw-card">
-        <div class="hw-num">// HW07</div>
-        <h3>HW7</h3>      
-        <div class="hw-tags">
-          <span class="tag">PDF</span>
-          <span class="tag">Assignment</span>
-        </div>
-      
-        <div class="hw-actions">
-          <a href="https://github.com/BADIR64/homework/blob/main/badir/HW7.pdf" target="_blank" class="hw-link">View PDF →</a>
-        </div>
+        <div class="hw-tags"><span class="tag">PDF</span><span class="tag">Assignment</span></div>
+        <div class="hw-actions"><a href="https://github.com/BADIR64/homework/blob/main/badir/HW6.pdf" target="_blank" class="hw-link">View PDF →</a></div>
       </div>
 
-      <!-- HW8 -->
+      <div class="hw-card">
+        <div class="hw-num">// HW07</div>
+        <h3>HW7</h3>
+        <div class="hw-tags"><span class="tag">PDF</span><span class="tag">Assignment</span></div>
+        <div class="hw-actions"><a href="https://github.com/BADIR64/homework/blob/main/badir/HW7.pdf" target="_blank" class="hw-link">View PDF →</a></div>
+      </div>
+
       <div class="hw-card">
         <div class="hw-num">// HW08</div>
         <h3>Favorite Movie</h3>
         <p>A styled HTML page featuring my favorite movie Inception, with modern cyberpunk design, gradient effects, and elegant information layout.</p>
-        <div class="hw-tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">Design</span>
-        </div>
-        <div class="hw-actions">
-          <a href="hw8.html" target="_blank" class="hw-link">View Page →</a>
-        </div>
+        <div class="hw-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Design</span></div>
+        <div class="hw-actions"><a href="hw8.html" target="_blank" class="hw-link">View Page →</a></div>
       </div>
 
-      <!-- HW9 -->
       <div class="hw-card">
         <div class="hw-num">// HW09</div>
         <h3>Web Page Evaluation</h3>
         <p>Analysis and evaluation of appealing vs. unappealing web pages, covering design principles, CSS usage, layout techniques, and best practices.</p>
-        <div class="hw-tags">
-          <span class="tag">Analysis</span>
-          <span class="tag">Documentation</span>
-          <span class="tag">Web Design</span>
-        </div>
-        <div class="hw-actions">
-          <a href="hw9.html" target="_blank" class="hw-link">View Page →</a>
-        </div>
+        <div class="hw-tags"><span class="tag">Analysis</span><span class="tag">Documentation</span><span class="tag">Web Design</span></div>
+        <div class="hw-actions"><a href="hw9.html" target="_blank" class="hw-link">View Page →</a></div>
       </div>
 
-      <!-- HW10 -->
       <div class="hw-card">
         <div class="hw-num">// HW10</div>
         <h3>E-Commerce Survey Analysis</h3>
         <p>A comprehensive survey analysis of online shopping habits covering purchase behavior, demographics, frequency patterns, and findings supported by industry research.</p>
+        <div class="hw-tags"><span class="tag">Survey</span><span class="tag">Data Analysis</span><span class="tag">Research</span></div>
+        <div class="hw-actions"><a href="hw10.html" target="_blank" class="hw-link">View Page →</a></div>
+      </div>
+
+      <!-- FINAL PROJECT -->
+      <div class="hw-card final featured">
+        <div class="final-badge">Final Project</div>
+        <div class="hw-num">// FINAL</div>
+        <h3>Hobbies & Interests Page</h3>
+        <p>A personal hobbies page built as the course final project — showcasing interests, personality, and front-end skills in a cohesive, handcrafted design. Built with pure HTML and CSS, no frameworks.</p>
         <div class="hw-tags">
-          <span class="tag">Survey</span>
-          <span class="tag">Data Analysis</span>
-          <span class="tag">Research</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Typography</span>
+          <span class="tag">Layout</span>
+          <span class="tag">Personal</span>
         </div>
         <div class="hw-actions">
-          <a href="hw10.html" target="_blank" class="hw-link">View Page →</a>
+          <a href="https://github.com/BADIR64/homework/blob/main/badir/badir-hobbies.html" target="_blank" class="hw-link">View on GitHub →</a>
         </div>
       </div>
+
     </div>
   </section>
 
   <div class="divider"><hr></div>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-label">Get in touch</div>
     <h2>Let's Connect</h2>
@@ -877,7 +385,6 @@
       }
     }
 
-    // Intersection Observer for scroll-triggered fade-ups
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -890,6 +397,7 @@
     document.querySelectorAll('.hw-card, .stat-card').forEach(el => {
       el.style.opacity = 0;
       el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(el);
     });
   </script>
